@@ -1,4 +1,4 @@
-# soc-lab-splunk
+# Soc-Lab-Splunk
 Splunk-based Mini SOC Lab | Log Ingestion · Attack Simulation · Detection Engineering
 Mini SOC Lab — detection engineering project using Splunk.
 # SOC Lab — Splunk Detection Engineering
