@@ -1,0 +1,3 @@
+index=linux sourcetype=linux_secure
+| search _raw="*scan*" OR "*nmap*" OR "*port*"
+| timechart span=1h count as "Reconnaissance Events"

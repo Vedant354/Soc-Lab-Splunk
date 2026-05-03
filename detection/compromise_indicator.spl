@@ -1,0 +1,4 @@
+index=linux sourcetype=linux_secure ("Failed password" OR "Accepted password")
+| eval status=if(match(_raw,"Failed"),"FAILED","SUCCESS")
+| table _time, host, status, _raw
+| sort _time

@@ -1,0 +1,4 @@
+index=linux sourcetype=linux_secure "Failed password"
+| stats count as failed_attempts by host
+| where failed_attempts > 10
+| sort -failed_attempts
