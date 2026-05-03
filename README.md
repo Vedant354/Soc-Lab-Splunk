@@ -21,10 +21,10 @@ ingest logs, write detection queries, and document investigations.
 
 ## Project Phases
 - [x] Phase 1 — Lab setup & log ingestion ✅
-- [ ] Phase 2 — Attack simulation (Nmap, brute force)
-- [ ] Phase 3 — Detection queries in Splunk
-- [ ] Phase 4 — Investigation & incident report
-- [ ] Phase 5 — Published findings
+- [x] Phase 2 — Attack simulation (Nmap, brute force)
+- [x] Phase 3 — Detection queries in Splunk
+- [x] Phase 4 — Investigation & incident report
+- [x] Phase 5 — Published findings
 
 ## Tools
 - Splunk Free
