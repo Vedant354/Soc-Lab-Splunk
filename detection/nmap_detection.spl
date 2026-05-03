@@ -1,3 +1,9 @@
+# Nmap Reconnaissance Detection
+# MITRE ATT&CK: T1046 - Network Service Scanning
+# Description: Detects port scanning activity by identifying
+# high volume of connection attempts and port-related events
+# originating from a single source IP
+
 index=linux sourcetype=linux_secure
 | search _raw="*scan*" OR "*nmap*" OR "*port*"
 | timechart span=1h count as "Reconnaissance Events"

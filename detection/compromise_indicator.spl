@@ -1,3 +1,9 @@
+# Compromise Indicator — Successful Login After Brute Force
+# MITRE ATT&CK: T1078 - Valid Accounts
+# Description: Detects successful SSH login following multiple
+# failed attempts — indicating a brute force attack resulted
+# in unauthorized access. SUCCESS after FAILED = compromise.
+
 index=linux sourcetype=linux_secure ("Failed password" OR "Accepted password")
 | eval status=if(match(_raw,"Failed"),"FAILED","SUCCESS")
 | table _time, host, status, _raw

@@ -1,3 +1,9 @@
+# SSH Brute Force Detection
+# MITRE ATT&CK: T1110.001 - Brute Force: Password Guessing
+# Description: Detects SSH brute force attacks by counting
+# failed login attempts per host and alerting when threshold
+# exceeds 10 failures — indicating automated attack behavior
+
 index=linux sourcetype=linux_secure "Failed password"
 | stats count as failed_attempts by host
 | where failed_attempts > 10
