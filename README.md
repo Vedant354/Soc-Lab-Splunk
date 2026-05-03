@@ -111,7 +111,7 @@ A 5-panel Splunk dashboard was built to visualize the full attack chain:
 - Successful Logins Detected (single value)
 - Full Attack Timeline (table)
 
-📄 [View Dashboard PDF](dashboard/soc_dashboard.pdf)
+📄 [View Dashboard PDF](dashboard/soc_lab_-_attack_detection-2026-05-03.pdf)
 
 ---
 
