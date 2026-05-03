@@ -127,12 +127,12 @@ A full incident report documenting the attack chain, IOCs, MITRE mapping, detect
 
 | Screenshot | Description |
 |---|---|
-| ![](screenshots/Kali_Nmap.png) | Nmap scans running from Kali |
-| ![](screenshots/Kali_Hydra.png) | Hydra brute force running |
-| ![](screenshots/Kali_Success_SSH.png) | Successful SSH login |
-| ![](screenshots/Splunk_see_Hydra.png) | Brute force detected in Splunk |
-| ![](screenshots/Splunk_Success_SSH.png) | Successful login detected in Splunk |
-| ![](screenshots/Splunk_Dashboard.png) | SOC Detection Dashboard |
+| ![](screenshots/Kali%20Nmap.png) | Nmap scans running from Kali |
+| ![](screenshots/Kali%20Hydra.png) | Hydra brute force running |
+| ![](screenshots/Kali%20Success%20SSH.png) | Successful SSH login |
+| ![](screenshots/Splunk%20see%20Hydra.png) | Brute force detected in Splunk |
+| ![](screenshots/Splunk%20Success%20SSH.png) | Successful login detected in Splunk |
+| ![](screenshots/Dashboard.png) | SOC Detection Dashboard |
 
 ---
 
