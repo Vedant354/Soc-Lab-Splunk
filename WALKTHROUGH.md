@@ -36,7 +36,8 @@ sudo systemctl status SplunkForwarder
 ```
 **Expected Result:** `active (running)` — logs are being forwarded to Splunk.
 
-📸 Evidence: `screenshots/Target_Sending.png`
+📸 Evidence:
+[![Target Sending](screenshots/Target%20Sending.png)](screenshots/Target%20Sending.png)
 
 ---
 
@@ -51,7 +52,7 @@ nmap -sn 192.168.18.128
 ```
 **What this does:** Sends ping probes to check if the target is alive without scanning ports.
 
-**Result:**
+**Result:** Host is up, MAC Address confirmed.
 
 ### Step 5 — SYN Stealth Scan
 **On Kali:**
@@ -60,7 +61,7 @@ sudo nmap -sS 192.168.18.128
 ```
 **What this does:** Sends SYN packets to each port without completing the TCP handshake — stealthy scan that reveals open ports.
 
-**Result:**
+**Result:** Port 22/tcp open — SSH discovered.
 
 ### Step 6 — Service Version Detection
 **On Kali:**
@@ -69,9 +70,10 @@ sudo nmap -sV 192.168.18.128
 ```
 **What this does:** Probes open ports to determine what service and version is running — critical for identifying exploitable vulnerabilities.
 
-**Result:**
+**Result:** OpenSSH 9.6p1 Ubuntu identified on port 22.
 
-📸 Evidence: `screenshots/Kali_Nmap.png`
+📸 Evidence (Steps 4-6):
+[![Kali Nmap](screenshots/Kali%20Nmap.png)](screenshots/Kali%20Nmap.png)
 
 ### Step 7 — Aggressive Full Scan
 **On Kali:**
@@ -80,9 +82,10 @@ sudo nmap -A 192.168.18.128
 ```
 **What this does:** Combines OS detection, version detection, script scanning and traceroute — gives the attacker maximum information about the target.
 
-**Result:**
+**Result:** OS: Linux 4.15-5.19, Device: general purpose, SSH fully fingerprinted.
 
-📸 Evidence: `screenshots/Kali_Nmap_1.png`
+📸 Evidence:
+[![Kali Nmap 1](screenshots/Kali%20Nmap%201.png)](screenshots/Kali%20Nmap%201.png)
 
 **Reconnaissance Conclusion:** Target is running Ubuntu Linux with SSH (port 22) exposed. OpenSSH version identified. Attacker now knows exactly what to attack.
 
@@ -115,7 +118,8 @@ hydra -l vegion-target -P /usr/share/wordlists/rockyou.txt ssh://192.168.18.128 
 
 **Result:** 123 failed attempts recorded in auth.log before attack was stopped.
 
-📸 Evidence: `screenshots/Kali_Hydra.png`
+📸 Evidence:
+[![Kali Hydra](screenshots/Kali%20Hydra.png)](screenshots/Kali%20Hydra.png)
 
 ---
 
@@ -130,7 +134,8 @@ ssh vegion-target@192.168.18.128
 ```
 **Result:** Successful login — attacker now has shell access to the target machine.
 
-📸 Evidence: `screenshots/Kali_Success_SSH.png`
+📸 Evidence:
+[![Kali Success SSH](screenshots/Kali%20Success%20SSH.png)](screenshots/Kali%20Success%20SSH.png)
 
 **Attack chain complete:** Recon → Brute Force → Unauthorized Access
 
@@ -157,7 +162,8 @@ index=linux sourcetype=linux_secure
 ```
 **What this detects:** Unusual port-related connection attempts indicating scanning activity.
 
-📸 Evidence: `screenshots/Splunk_Nmap_read.png`
+📸 Evidence:
+[![Splunk Nmap Read](screenshots/Splunk%20Nmap%20read.png)](screenshots/Splunk%20Nmap%20read.png)
 
 ### Step 13 — Detect SSH Brute Force
 **SPL Query:**
@@ -171,9 +177,14 @@ index=linux sourcetype=linux_secure "Failed password"
 
 **Result:** `vegion-target-VMware-Virtual-Platform` — 123 failed attempts detected.
 
-📸 Evidence: `screenshots/Splunk_see_Hydra.png`
-📸 Evidence: `screenshots/Splunk_Brute_force_detect.png`
-📸 Evidence: `screenshots/Splunk_see_Host_Hydra.png`
+📸 Evidence:
+[![Splunk See Hydra](screenshots/Splunk%20see%20Hydra.png)](screenshots/Splunk%20see%20Hydra.png)
+
+📸 Evidence:
+[![Splunk Brute Force Detect](screenshots/Splunk%20Brute%20force%20detect.png)](screenshots/Splunk%20Brute%20force%20detect.png)
+
+📸 Evidence:
+[![Splunk See Host Hydra](screenshots/Splunk%20see%20Host%20Hydra.png)](screenshots/Splunk%20see%20Host%20Hydra.png)
 
 ### Step 14 — Detect Successful Login
 **SPL Query:**
@@ -186,8 +197,11 @@ index=linux sourcetype=linux_secure "Accepted password"
 
 **Result:** 1 successful login at `2026-05-02T15:20:59` from `192.168.18.132`
 
-📸 Evidence: `screenshots/Splunk_Success_SSH.png`
-📸 Evidence: `screenshots/Splunk_success.png`
+📸 Evidence:
+[![Splunk Success SSH](screenshots/Splunk%20Success%20SSH.png)](screenshots/Splunk%20Success%20SSH.png)
+
+📸 Evidence:
+[![Splunk Success](screenshots/Splunk%20success.png)](screenshots/Splunk%20success.png)
 
 ### Step 15 — Full Attack Timeline
 **SPL Query:**
@@ -199,7 +213,8 @@ index=linux sourcetype=linux_secure ("Failed password" OR "Accepted password")
 ```
 **What this does:** Combines all failed and successful login events into a single chronological timeline with clear FAILED/SUCCESS labels — showing the complete attack chain in one view.
 
-📸 Evidence: `screenshots/All Attack event (eval and tables).png`
+📸 Evidence:
+[![All Attack Events](screenshots/All%20Attack%20event%20(eval%20and%20tables).png)](screenshots/All%20Attack%20event%20(eval%20and%20tables).png)
 
 ---
 
@@ -231,7 +246,8 @@ A 5-panel Splunk dashboard was built to visualize the complete attack chain.
 - Visualization: Table
 - Shows chronological FAILED/SUCCESS events with raw log data
 
-📸 Evidence: `screenshots/Dashboard.png`
+📸 Evidence:
+[![Dashboard](screenshots/Dashboard.png)](screenshots/Dashboard.png)
 
 ---
 
